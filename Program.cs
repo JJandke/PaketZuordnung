@@ -10,42 +10,47 @@ namespace PaketZuordnung
     {
         static void Main(string[] args)
         {
-            int i_paketnummer = 0;
-            int i_fach = 0;
-
-            Console.Write("Bitte geben Sie die Paketnummer an: ");
-            try
+            while(true)
             {
-                i_paketnummer = Convert.ToInt16(Console.ReadLine());
-            }
-            catch (Exception)
-            {
+                int i_paketnummer = 0;
+                int i_fach = 0;
 
-                throw;
-            }
+                Console.Write("Bitte geben Sie die Paketnummer an: ");
+                try
+                {
+                    i_paketnummer = Convert.ToInt16(Console.ReadLine());
+                }
+                catch (Exception)
+                {
 
-            if (i_paketnummer %4 == 0 || i_paketnummer % 5 == 0){
-                if (i_paketnummer % 100 == 0) {
-                    if (i_paketnummer % 400 == 0)
+                    throw;
+                }
+
+                if (i_paketnummer % 4 == 0 || i_paketnummer % 5 == 0)
+                {
+                    if (i_paketnummer % 100 == 0)
                     {
-                        i_fach = 3;
+                        if (i_paketnummer % 400 == 0)
+                        {
+                            i_fach = 3;
+                        }
+                        else
+                        {
+                            i_fach = 2;
+                        }
                     }
                     else
                     {
-                        i_fach = 2;
+                        i_fach = 1;
                     }
                 }
                 else
                 {
-                    i_fach = 1;
+                    i_fach = 4;
                 }
+                Console.WriteLine("Das Paket ist in Fach Nr. " + i_fach + "\nZum Fortfahren beliebige Taste drücken!\n");
+                Console.ReadKey();
             }
-            else
-            {
-                i_fach = 4;
-            }
-            Console.WriteLine("Das Paket ist in Fach Nr. " + i_fach);
-            Console.ReadKey();
         }
     }
 }
