@@ -7,6 +7,7 @@
 ------
 
 
+ss
 
 ## Programmablaufplan des Algorithmus zur Zuordnung der Pakete
 
