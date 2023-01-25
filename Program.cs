@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +19,8 @@ namespace PaketZuordnung
                 int i_paketnummer = 0;
                 int i_fach = 0;
 
+                
+
                 Console.Write("Bitte geben Sie die Paketnummer an: ");
                 try
                 {
@@ -28,9 +31,16 @@ namespace PaketZuordnung
 
                     throw;
                 }
+
                 if (i_paketnummer == 0)
                 {
                     break;
+                }
+
+                else if (i_paketnummer < 1000 || i_paketnummer > 9999)
+                {
+                    Console.WriteLine("Sie haben " + i_paketnummer + "eingegeben. Dies ist keine gültige Paketnummer.");
+
                 }
 
                 else if (i_paketnummer % 4 == 0 || i_paketnummer % 5 == 0)
