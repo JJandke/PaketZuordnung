@@ -10,7 +10,10 @@ namespace PaketZuordnung
     {
         static void Main(string[] args)
         {
-            while(true)
+
+            int i_abbruch = 1;
+
+            while (i_abbruch != 0)
             {
                 int i_paketnummer = 0;
                 int i_fach = 0;
@@ -25,8 +28,12 @@ namespace PaketZuordnung
 
                     throw;
                 }
+                if (i_paketnummer == 0)
+                {
+                    break;
+                }
 
-                if (i_paketnummer % 4 == 0 || i_paketnummer % 5 == 0)
+                else if (i_paketnummer % 4 == 0 || i_paketnummer % 5 == 0)
                 {
                     if (i_paketnummer % 100 == 0)
                     {
@@ -51,6 +58,8 @@ namespace PaketZuordnung
                 Console.WriteLine("Das Paket ist in Fach Nr. " + i_fach + "\nZum Fortfahren beliebige Taste drücken!\n");
                 Console.ReadKey();
             }
+            Console.WriteLine("Beenden des Programms:\nDrücken Sie eine beliebige Taste um das Programm zu beenden");
+            Console.ReadKey();
         }
     }
 }
