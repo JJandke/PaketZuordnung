@@ -14,25 +14,30 @@ namespace PaketZuordnung
 
             int i_abbruch = 1;
 
-            while (i_abbruch != 0)
+            int user_input(int i_paketnummer)
             {
-                int i_paketnummer = 0;
-                int i_fach = 0;
-
-                
-
                 Console.Write("Bitte geben Sie die Paketnummer an: ");
                 try
                 {
                     i_paketnummer = Convert.ToInt16(Console.ReadLine());
+                    return i_paketnummer;
                 }
                 catch (Exception)
                 {
 
                     throw;
                 }
+            }
 
-                if (i_paketnummer == 0)
+            while (i_abbruch != 0)
+            {
+                int i_paketnummer = 0;
+                int i_fach = 0;
+
+                user_input(i_paketnummer);
+
+
+                if (i_abbruch == 0)
                 {
                     break;
                 }
@@ -40,6 +45,7 @@ namespace PaketZuordnung
                 else if (i_paketnummer < 1000 || i_paketnummer > 9999)
                 {
                     Console.WriteLine("Sie haben " + i_paketnummer + "eingegeben. Dies ist keine gültige Paketnummer.");
+                    user_input(i_paketnummer);
 
                 }
 
